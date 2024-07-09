@@ -36,7 +36,7 @@ public class UserController {
                                                    @RequestParam(name = "name") String name) {
         UserResponse response = userService.updateUser(id, name);
         if (response != null) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
