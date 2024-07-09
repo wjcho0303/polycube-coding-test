@@ -6,15 +6,13 @@ import kr.co.polycube.backendtest.user.entity.User;
 import lombok.Getter;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Getter
 public class Winner extends User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lotto_id")
     private Lotto lotto;
 
-
+    private int rank;
 }
