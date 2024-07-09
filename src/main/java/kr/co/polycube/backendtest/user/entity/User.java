@@ -8,6 +8,8 @@ import lombok.*;
 @Getter
 @Setter
 @Table(name = "users")
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -21,5 +23,4 @@ public class User extends BaseEntity {
     public User(String name) {
         this.name = name;
     }
-
 }

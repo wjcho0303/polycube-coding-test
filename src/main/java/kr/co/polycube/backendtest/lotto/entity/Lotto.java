@@ -1,6 +1,8 @@
 package kr.co.polycube.backendtest.lotto.entity;
 
 import jakarta.persistence.*;
+import kr.co.polycube.backendtest.global.BaseEntity;
+import kr.co.polycube.backendtest.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +13,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Lotto {
+@Table(name = "lottos")
+public class Lotto extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,5 +36,4 @@ public class Lotto {
 
     @Column(name = "number_6")
     private int number6;
-
 }
