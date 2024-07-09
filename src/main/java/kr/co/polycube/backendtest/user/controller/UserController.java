@@ -1,5 +1,6 @@
 package kr.co.polycube.backendtest.user.controller;
 
+import kr.co.polycube.backendtest.user.dto.UserAddResponse;
 import kr.co.polycube.backendtest.user.dto.UserResponse;
 import kr.co.polycube.backendtest.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +26,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponse> addUser(@RequestParam(name = "name") String name) {
-        UserResponse response = userService.addUser(name);
+    public ResponseEntity<UserAddResponse> addUser(@RequestParam(name = "name") String name) {
+        UserAddResponse response = userService.addUser(name);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 

@@ -1,5 +1,6 @@
 package kr.co.polycube.backendtest.user.service;
 
+import kr.co.polycube.backendtest.user.dto.UserAddResponse;
 import kr.co.polycube.backendtest.user.dto.UserResponse;
 import kr.co.polycube.backendtest.user.entity.User;
 import kr.co.polycube.backendtest.user.repository.UserRepository;
@@ -13,10 +14,10 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserResponse addUser(String name) {
+    public UserAddResponse addUser(String name) {
         User user = new User(name);
         User savedUser = userRepository.save(user);
-        return new UserResponse(savedUser.getId(), savedUser.getName());
+        return new UserAddResponse(savedUser.getId());
     }
 
     // TODO: 예외 처리
