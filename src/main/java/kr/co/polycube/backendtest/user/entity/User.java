@@ -1,7 +1,7 @@
 package kr.co.polycube.backendtest.user.entity;
 
 import jakarta.persistence.*;
-import kr.co.polycube.backendtest.global.BaseEntity;
+import kr.co.polycube.backendtest.global.entity.BaseEntity;
 import lombok.*;
 
 @Entity
