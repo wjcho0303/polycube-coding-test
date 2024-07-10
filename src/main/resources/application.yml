@@ -1,9 +1,10 @@
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    # .gitignore에 env.yml 을 작성해놓았기 때문에 github에 업로드 할 수 없어 부득이하게 하드 코딩합니다.
+    url: jdbc:h2:mem:testdb     #${DB_JDBC_URL}
+    username: pc                #${DB_USERNAME}
+    password: 2024              #${DB_PASSWORD}
   h2:
     console:
       enabled: true
@@ -12,7 +13,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: truea
+        format_sql: true
     hibernate:
       ddl-auto: create
     time:

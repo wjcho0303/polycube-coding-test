@@ -1,4 +1,4 @@
-package kr.co.polycube.backendtest.global;
+package kr.co.polycube.backendtest.global.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

@@ -1,4 +1,4 @@
-package kr.co.polycube.backendtest.global;
+package kr.co.polycube.backendtest.global.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;

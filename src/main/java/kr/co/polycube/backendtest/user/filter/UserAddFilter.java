@@ -20,10 +20,9 @@ public class UserAddFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 
-        String uri = httpServletRequest.getRequestURI();
         String queryString = httpServletRequest.getQueryString();
         if (queryString != null && CHARACTERS.matcher(queryString).find()) {
-            httpServletResponse.sendError(HttpServletResponse.SC_BAD_REQUEST, "특수 문자는 허용되지 않습니다.");
+            httpServletResponse.sendError(HttpServletResponse.SC_BAD_REQUEST, "URL에 `? & = : //`를 제외한 특수문자는 입력할 수 없습니다.");
             return;
         }
 
