@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
 @RequiredArgsConstructor
-@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

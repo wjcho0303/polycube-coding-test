@@ -15,14 +15,10 @@ public class UserController {
 
     private final UserService userService;
 
-    //TODO: HttpStatus.NOT_FOUND 처리 후에 수정
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> getUser(@PathVariable("id") Long id) {
         UserResponse response = userService.getUser(id);
-        if (response != null) {
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping
@@ -31,15 +27,11 @@ public class UserController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    //TODO: HttpStatus.NOT_FOUND 처리 후에 수정
     @PatchMapping("/{id}")
     public ResponseEntity<UserResponse> updateUser(@PathVariable("id") Long id,
                                                    @RequestParam(name = "name") String name) {
         UserResponse response = userService.updateUser(id, name);
-        if (response != null) {
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
 }
