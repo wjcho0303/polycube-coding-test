@@ -15,11 +15,4 @@ public class ErrorResponse {
         this.message = ex.getErrorCode().getMessage();
         this.detailMessage = ex.getMessage();
     }
-
-    public ErrorResponse(CustomException ex, String message) {
-        this.errorCode = ex.getErrorCode().getCode();
-        this.message = ex.getErrorCode().getMessage();
-        this.detailMessage = message;
-    }
-
 }

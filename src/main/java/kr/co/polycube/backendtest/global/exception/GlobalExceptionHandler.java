@@ -2,10 +2,8 @@ package kr.co.polycube.backendtest.global.exception;
 
 import kr.co.polycube.backendtest.global.exception.dto.ErrorResponse;
 import kr.co.polycube.backendtest.global.exception.model.CustomException;
-import kr.co.polycube.backendtest.global.exception.model.InvalidCharacterException;
 import kr.co.polycube.backendtest.global.exception.model.NotFoundException;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -33,12 +31,6 @@ public class GlobalExceptionHandler {
         ErrorResponse response = new ErrorResponse(customException);
 
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
-    }
-
-    @ExceptionHandler(InvalidCharacterException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidCharacterException(InvalidCharacterException ex) {
-        ErrorResponse response = new ErrorResponse(ex);
-        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
 }
