@@ -1,5 +1,6 @@
 package kr.co.polycube.backendtest.user.service;
 
+import kr.co.polycube.backendtest.global.exception.model.NotFoundException;
 import kr.co.polycube.backendtest.user.dto.UserAddResponse;
 import kr.co.polycube.backendtest.user.dto.UserResponse;
 import kr.co.polycube.backendtest.user.entity.User;
@@ -20,27 +21,21 @@ public class UserService {
         return new UserAddResponse(savedUser.getId());
     }
 
-    // TODO: 예외 처리
     public UserResponse getUser(Long id) {
-        Optional<User> userOptional = userRepository.findById(id);
-        if(userOptional.isPresent()) {
-            User user = userOptional.get();
-            return new UserResponse(user.getId(), user.getName());
-        }
-        return null;
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("유저를 찾을 수 없습니다."));
+
+        return new UserResponse(user.getId(), user.getName());
     }
 
-    // TODO: 예외 처리
     public UserResponse updateUser(Long id, String name) {
-        Optional<User> userOptional = userRepository.findById(id);
-        if(userOptional.isPresent()) {
-            User user = userOptional.get();
-            user.setName(name);
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("유저를 찾을 수 없습니다."));
 
-            User updatedUser = userRepository.save(user);
-            return new UserResponse(updatedUser.getId(), updatedUser.getName());
-        }
-        return null;
+        user.setName(name);
+        User updatedUser = userRepository.save(user);
+
+        return new UserResponse(updatedUser.getId(), updatedUser.getName());
     }
 
 }
